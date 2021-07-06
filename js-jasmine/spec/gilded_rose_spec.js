@@ -32,9 +32,9 @@ describe("Gilded Rose", function() {
   })
 
   it("'Aged Brie' quality increases with time", function() {
-    const gildedRose = new Shop([ new Item("Aged Brie", 5, 5) ]);
+    const gildedRose = new Shop([ new Item("Aged Brie", 2, 0) ]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).toEqual(6);
+    expect(items[0].quality).toEqual(1);
   });
 
   it("Quality never > 50", function() {
@@ -44,15 +44,15 @@ describe("Gilded Rose", function() {
   });
 
   it("Sulfuras sellIn does not change", function() {
-    const gildedRose = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 5, 5) ]);
+    const gildedRose = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 5, 80) ]);
     const items = gildedRose.updateQuality();
     expect(items[0].sellIn).toEqual(5);
   });
 
   it("Sulfuras quality does not change", function() {
-    const gildedRose = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 5, 5) ]);
+    const gildedRose = new Shop([ new Item("Sulfuras, Hand of Ragnaros", 5, 80) ]);
     const items = gildedRose.updateQuality();
-    expect(items[0].quality).toEqual(5);
+    expect(items[0].quality).toEqual(80);
   });
 
   it("'Backstage passes' quality increases with time", function() {
